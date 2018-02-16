@@ -27,8 +27,8 @@
 
         $this->RegisterPropertyInteger("LightValue", 0);
         $this->RegisterPropertyInteger("RainValue", 0);
-        $this->RegisterPropertyInteger("upperEventSun", 0);
-        $this->RegisterPropertyInteger("lowerEventSun", 0);
+        $this->RegisterPropertyEvent("upperEventSun", 0);
+        $this->RegisterPropertyEvent("lowerEventSun", 0);
         $this->EnableAction("upperValueSun");
         $this->EnableAction("lowerValueSun");
 
