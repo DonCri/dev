@@ -27,6 +27,8 @@
 
         $this->RegisterPropertyInteger("LightValue", 0);
         $this->RegisterPropertyInteger("RainValue", 0);
+        $this->RegisterPropertyInteger("upperEventSun", 0);
+        $this->RegisterPropertyInteger("lowerEventSun", 0);
         $this->EnableAction("upperValueSun");
         $this->EnableAction("lowerValueSun");
 
@@ -59,8 +61,8 @@
                   case "StateChangeSun":
                       //Neuen Wert in die Statusvariable schreiben
                       SetValue($this->GetIDForIdent($Ident), $Value);
-                      IPS_SetEventActiv($this->GetIDForIdent("upperEventSun"), $Value);
-                      IPS_SetEventActiv($this->GetIDForIdent("lowerEventSun"), $Value);
+                      IPS_SetEventActive($this->GetIDForIdent("upperEventSun"), $Value);
+                      IPS_SetEventActive($this->GetIDForIdent("lowerEventSun"), $Value);
                   break;
                   }
 
