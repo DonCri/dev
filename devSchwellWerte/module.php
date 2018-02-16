@@ -59,8 +59,8 @@
                   case "StateChangeSun":
                       //Neuen Wert in die Statusvariable schreiben
                       SetValue($this->GetIDForIdent($Ident), $Value);
-                      IPS_SetEventActiv($this->GetIDForIdent("upperEventSun"), $Value);
-                      IPS_SetEventActiv($this->GetIDForIdent("lowerEventSun"), $Value);
+                      IPS_SetEventActive($this->GetIDForIdent("upperEventSun"), $Value);
+                      IPS_SetEventActive($this->GetIDForIdent("lowerEventSun"), $Value);
                   break;
                   }
 
