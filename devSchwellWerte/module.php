@@ -24,11 +24,10 @@
         $this->RegisterVariableString("lowerValueWind", "Unterer Schwellwert Wind", "", "5");
         $this->RegisterVariableString("stateWind", "Aktiver Schwellwert Wind", "", "6");
 
-
         $this->RegisterPropertyInteger("LightValue", 0);
         $this->RegisterPropertyInteger("RainValue", 0);
-        $this->RegisterPropertyString("upperEventSun", 0);
-        $this->RegisterPropertyString("lowerEventSun", 0);
+        $this->RegisterPropertyString("upperEventSun", "");
+        $this->RegisterPropertyString("lowerEventSun", "");
         $this->EnableAction("upperValueSun");
         $this->EnableAction("lowerValueSun");
         $this->EnableAction("StateChangeSun");
@@ -83,19 +82,17 @@
 
         if($Status <> "oben")
           {
-
             if($Lichtsensor >= $oberenSchwellwert && $Regensensor == false)
             {
               SetValue($this->GetIDForIdent("stateSun"), "oben");
             }
           } elseif($Status <> "unten")
-                      {
-
-                        if($Lichtsensor <= $unterenSchwellwert)
-                        {
-                          SetValue($this->GetIDForIdent("stateSun"), "unten");
-                        }
-                      }
+              {
+                if($Lichtsensor <= $unterenSchwellwert)
+                  {
+                    SetValue($this->GetIDForIdent("stateSun"), "unten");
+                  }
+                }
 
         }
 
@@ -108,19 +105,17 @@
 
           if($Status <> "oben")
             {
-
               if($Windsensor >= $oberenSchwellwert)
               {
                 SetValue($this->GetIDForIdent("stateWind"), "oben");
               }
             } elseif($Status <> "unten")
-                        {
-
-                          if($Windsensor <= $unterenSchwellwert)
-                          {
-                            SetValue($this->GetIDForIdent("stateWind"), "unten");
-                          }
-                        }
+                {
+                  if($Windsensor <= $unterenSchwellwert)
+                    {
+                      SetValue($this->GetIDForIdent("stateWind"), "unten");
+                    }
+                  }
           }
 
 }
