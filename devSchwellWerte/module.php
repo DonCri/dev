@@ -62,11 +62,11 @@
                       //Neuen Wert in die Statusvariable schreiben
                       SetValue($this->GetIDForIdent($Ident), $Value);
                       if($this->GetIDForIdent("StateChangeSun") == true) {
-                        IPS_SetEventActive($this->GetIDForIdent("upperEventSun"), true);
-                        IPS_SetEventActive($this->GetIDForIdent("lowerEventSun"), true);
+                        IPS_SetEventActive($this->ReadPropertyString("upperEventSun"), true);
+                        IPS_SetEventActive($this->ReadPropertyString("lowerEventSun"), true);
                       } elseif($this->GetIDForIdent("StateChangeSun") == false) {
-                                IPS_SetEventAcitve($this->GetIDForIdent("upperEventSun"), false);
-                                IPS_SetEventAcitve($this->GetIDForIdent("lowerEventSun"), false);
+                                IPS_SetEventAcitve($this->ReadPropertyString("upperEventSun"), false);
+                                IPS_SetEventAcitve($this->ReadPropertyString("lowerEventSun"), false);
                               }
                   break;
                   }
