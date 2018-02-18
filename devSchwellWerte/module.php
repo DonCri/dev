@@ -62,12 +62,12 @@
                       SetValue($this->GetIDForIdent($Ident), $Value);
                       switch ($this->GetIDForIdent("StateChangeSun")) {
                         case true:
-                            IPS_SetEventActive($this->GetIDForIdent("upperEventSun"), true);
-                            IPS_SetEventActive($this->GetIDForIdent("upperEventSun"), true);
+                            IPS_SetEventActive($this->ReadPropertyString("upperEventSun"), true);
+                            IPS_SetEventActive($this->ReadPropertyString("upperEventSun"), true);
                           break;
                         case false:
-                          IPS_SetEventActive($this->GetIDForIdent("upperEventSun"), false);
-                          IPS_SetEventActive($this->GetIDForIdent("upperEventSun"), false);
+                          IPS_SetEventActive($this->ReadPropertyString("upperEventSun"), false);
+                          IPS_SetEventActive($this->ReadPropertyString("upperEventSun"), false);
                         break;
                       }
                   break;
