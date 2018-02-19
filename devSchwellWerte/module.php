@@ -24,8 +24,8 @@
 
         $this->RegisterVariableString("upperValueSun", "Oberer Schwellwert Sonne", "", "1");
         $this->RegisterVariableString("lowerValueSun", "Unterer Schwellwert Sonne", "", "2");
-        $this->RegisterVariableString("stateSun", "Aktiver Schwellwert Sonne", "", "3");
-        $this->RegisterVariableBoolean("StateChangeSun", "Beschattung aktivieren / deaktivieren", "BRELAG.SollSWW", "0");
+        $this->RegisterVariableInteger("stateSun", "Aktiver Schwellwert Sonne", "BRELAG.SollSWW", "3");
+        $this->RegisterVariableBoolean("StateChangeSun", "Beschattung aktivieren / deaktivieren", "BRELAG.Switch", "0");
 
         $this->RegisterVariableString("upperValueWind", "Oberer Schwellwert Wind", "", "4");
         $this->RegisterVariableString("lowerValueWind", "Unterer Schwellwert Wind", "", "5");
@@ -85,13 +85,13 @@
           {
             if($Lichtsensor >= $oberenSchwellwert && $Regensensor == false)
             {
-              SetValue($this->GetIDForIdent("stateSun"), "oben");
+              SetValue($this->GetIDForIdent("stateSun"), "1");
             }
           } elseif($Status <> "unten")
               {
                 if($Lichtsensor <= $unterenSchwellwert)
                   {
-                    SetValue($this->GetIDForIdent("stateSun"), "unten");
+                    SetValue($this->GetIDForIdent("stateSun"), "0");
                   }
                 }
 
