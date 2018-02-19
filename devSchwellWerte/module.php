@@ -15,10 +15,17 @@
         // Diese Zeile nicht löschen.
         parent::Create();
 
+        if(!IPS_VariableProfileExists("BRELAG.SollSWW")) {
+    			IPS_CreateVariableProfile("BRELAG.SollSWW", 0);
+    			IPS_SetVariableProfileIcon("BRELAG.SollSWW", "Info");
+    			IPS_SetVariableProfileAssociation("BRELAG.SollSWW", 0, $this->Translate("lower"), "", -1);
+    			IPS_SetVariableProfileAssociation("BRELAG.SollSWW", 1, $this->Translate("upper"), "", -1);
+    		}
+
         $this->RegisterVariableString("upperValueSun", "Oberer Schwellwert Sonne", "", "1");
         $this->RegisterVariableString("lowerValueSun", "Unterer Schwellwert Sonne", "", "2");
         $this->RegisterVariableString("stateSun", "Aktiver Schwellwert Sonne", "", "3");
-        $this->RegisterVariableBoolean("StateChangeSun", "Beschattung aktivieren / deaktivieren", "BRELAG.Switch", "0");
+        $this->RegisterVariableBoolean("StateChangeSun", "Beschattung aktivieren / deaktivieren", "BRELAG.SollSWW", "0");
 
         $this->RegisterVariableString("upperValueWind", "Oberer Schwellwert Wind", "", "4");
         $this->RegisterVariableString("lowerValueWind", "Unterer Schwellwert Wind", "", "5");
