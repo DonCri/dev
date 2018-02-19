@@ -13,3 +13,6 @@
   * Function für Wind eingefügt
   * Einfügen von drei String-Variablen: Oberen und unteren Schwellwert Wind, Schwellwert Status Wind
   * Eingabeformular: Auswahl für Windsensor  
+
+### Version 1.2
+  * Boolean Variable für Ein und Ausschalten der Beschattungsereignisse
