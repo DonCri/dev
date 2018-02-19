@@ -60,16 +60,7 @@
                   case "StateChangeSun":
                       //Neuen Wert in die Statusvariable schreiben
                       SetValue($this->GetIDForIdent($Ident), $Value);
-                      switch ($this->GetIDForIdent("StateChangeSun")) {
-                        case true:
-                            IPS_SetEventActive($this->ReadPropertyString("upperEventSun"), true);
-                            IPS_SetEventActive($this->ReadPropertyString("upperEventSun"), true);
-                          break;
-                        case false:
-                          IPS_SetEventActive($this->ReadPropertyString("upperEventSun"), false);
-                          IPS_SetEventActive($this->ReadPropertyString("upperEventSun"), false);
-                        break;
-                      }
+                      BeschattungAktivDeaktiv()
                   break;
                   }
 
@@ -97,6 +88,20 @@
                   }
                 }
 
+        }
+
+        public function BeschattungAktivDeaktiv(){
+          
+          switch ($this->GetIDForIdent("StateChangeSun")) {
+            case true:
+                IPS_SetEventActive($this->ReadPropertyString("upperEventSun"), true);
+                IPS_SetEventActive($this->ReadPropertyString("upperEventSun"), true);
+              break;
+            case false:
+              IPS_SetEventActive($this->ReadPropertyString("upperEventSun"), false);
+              IPS_SetEventActive($this->ReadPropertyString("upperEventSun"), false);
+            break;
+          }
         }
 
         public function Wind() {
