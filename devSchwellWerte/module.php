@@ -60,7 +60,7 @@
                   case "StateChangeSun":
                       //Neuen Wert in die Statusvariable schreiben
                       SetValue($this->GetIDForIdent($Ident), $Value);
-                      BeschattungAktivDeaktiv()
+                      BeschattungAktivDeaktiv();
                   break;
                   }
 
