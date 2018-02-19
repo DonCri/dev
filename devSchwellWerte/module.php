@@ -60,7 +60,7 @@
                   case "StateChangeSun":
                       //Neuen Wert in die Statusvariable schreiben
                       SetValue($this->GetIDForIdent($Ident), $Value);
-                      BeschattungAktivDeaktiv();
+                      $this->BeschattungAktivDeaktiv();
                   break;
                   }
 
@@ -91,8 +91,8 @@
         }
 
         public function BeschattungAktivDeaktiv(){
-          
-          switch ($this->GetIDForIdent("StateChangeSun")) {
+          $state = GetValue($this->GetIDForIdent("StateChangeSun"));
+          switch ($state) {
             case true:
                 IPS_SetEventActive($this->ReadPropertyString("upperEventSun"), true);
                 IPS_SetEventActive($this->ReadPropertyString("upperEventSun"), true);
