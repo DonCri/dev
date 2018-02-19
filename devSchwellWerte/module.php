@@ -15,6 +15,7 @@
         // Diese Zeile nicht löschen.
         parent::Create();
 
+        // Profil für Sonne
         if(!IPS_VariableProfileExists("BRELAG.SollSWW")) {
     			IPS_CreateVariableProfile("BRELAG.SollSWW", 1);
           IPS_SetVariableProfileValues("BRELAG.SollSWW", 0, 2, 0);
@@ -30,7 +31,7 @@
 
         $this->RegisterVariableString("upperValueWind", "Oberer Schwellwert Wind", "", "4");
         $this->RegisterVariableString("lowerValueWind", "Unterer Schwellwert Wind", "", "5");
-        $this->RegisterVariableString("stateWind", "Aktiver Schwellwert Wind", "", "6");
+        $this->RegisterVariableInteger("stateWind", "Aktiver Schwellwert Wind", "BRELAG.SollSWW", "6");
 
         $this->RegisterPropertyInteger("LightValue", 0);
         $this->RegisterPropertyInteger("RainValue", 0);
@@ -119,17 +120,17 @@
           $unterenSchwellwert = GetValue($this->GetIDForIdent("lowerValueWind"));
           $Status = GetValue($this->GetIDForIdent("stateWind"));
 
-          if($Status <> "oben")
+          if($Status <> "1")
             {
               if($Windsensor >= $oberenSchwellwert)
               {
-                SetValue($this->GetIDForIdent("stateWind"), "oben");
+                SetValue($this->GetIDForIdent("stateWind"), "1");
               }
-            } elseif($Status <> "unten")
+            } elseif($Status <> "0")
                 {
                   if($Windsensor <= $unterenSchwellwert)
                     {
-                      SetValue($this->GetIDForIdent("stateWind"), "unten");
+                      SetValue($this->GetIDForIdent("stateWind"), "0");
                     }
                   }
           }
