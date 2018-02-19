@@ -19,8 +19,8 @@
     			IPS_CreateVariableProfile("BRELAG.SollSWW", 0);
           IPS_SetVariableProfileValues("BRELAG.SollSWW", 0, 2, 0);
     			IPS_SetVariableProfileIcon("BRELAG.SollSWW", "");
-    			IPS_SetVariableProfileAssociation("BRELAG.SollSWW", 0, $this->Translate("lower"), "-1");
-    			IPS_SetVariableProfileAssociation("BRELAG.SollSWW", 1, $this->Translate("upper"), "-1");
+    			IPS_SetVariableProfileAssociation("BRELAG.SollSWW", 0, $this->Translate("lower"), "", -1);
+    			IPS_SetVariableProfileAssociation("BRELAG.SollSWW", 1, $this->Translate("upper"), "", -1);
     		}
 
         $this->RegisterVariableString("upperValueSun", "Oberer Schwellwert Sonne", "", "1");
