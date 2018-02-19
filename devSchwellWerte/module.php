@@ -82,13 +82,13 @@
         $unterenSchwellwert = GetValue($this->GetIDForIdent("lowerValueSun"));
         $Status = GetValue($this->GetIDForIdent("stateSun"));
 
-        if($Status <> "oben")
+        if($Status <> 1)
           {
             if($Lichtsensor >= $oberenSchwellwert && $Regensensor == false)
             {
               SetValue($this->GetIDForIdent("stateSun"), "1");
             }
-          } elseif($Status <> "unten")
+          } elseif($Status <> 0)
               {
                 if($Lichtsensor <= $unterenSchwellwert)
                   {
