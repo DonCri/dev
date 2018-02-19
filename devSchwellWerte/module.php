@@ -90,7 +90,7 @@
 
         }
 
-        privat function BeschattungAktivDeaktiv(){
+        public function BeschattungAktivDeaktiv(){
           $state = GetValue($this->GetIDForIdent("StateChangeSun"));
           switch ($state) {
             case true:
