@@ -90,16 +90,16 @@
 
         }
 
-        public function BeschattungAktivDeaktiv(){
+        privat function BeschattungAktivDeaktiv(){
           $state = GetValue($this->GetIDForIdent("StateChangeSun"));
           switch ($state) {
             case true:
                 IPS_SetEventActive($this->ReadPropertyString("upperEventSun"), true);
-                IPS_SetEventActive($this->ReadPropertyString("upperEventSun"), true);
+                IPS_SetEventActive($this->ReadPropertyString("lowerEventSun"), true);
               break;
             case false:
               IPS_SetEventActive($this->ReadPropertyString("upperEventSun"), false);
-              IPS_SetEventActive($this->ReadPropertyString("upperEventSun"), false);
+              IPS_SetEventActive($this->ReadPropertyString("lowerEventSun"), false);
             break;
           }
         }
