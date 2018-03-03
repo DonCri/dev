@@ -9,6 +9,6 @@
         { "type": "Label", "label": ""},
         { "type": "Label", "label": "Wind:"},
         { "type": "SelectVariable", "name": "WindValue", "caption": "Windsensor" },
-        { "type": "SelectObject", "name": "Object", "caption": "Test" }
+        { "type": "SelectInstance", "name": "Object", "caption": "Test" }
     ]
 }
