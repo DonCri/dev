@@ -8,6 +8,7 @@
         { "type": "SelectEvent", "name": "lowerEventSun", "caption": "Event unteren Schwellwert" },
         { "type": "Label", "label": ""},
         { "type": "Label", "label": "Wind:"},
-        { "type": "SelectVariable", "name": "WindValue", "caption": "Windsensor" }
+        { "type": "SelectVariable", "name": "WindValue", "caption": "Windsensor" },
+        { "type": "SelectObject", "name": "Object", "caption": "Test" }
     ]
 }

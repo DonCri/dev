@@ -45,6 +45,8 @@
         $this->EnableAction("upperValueWind");
         $this->EnableAction("lowerValueWind");
 
+        $this->RegisterPropertyString("Object");
+
       }
 
       public function RequestAction($Ident, $Value) {
@@ -112,6 +114,30 @@
             break;
           }
         }
+
+        public function BeschattungWiederholen() {
+
+          $Lichtsensor = GetValue($this->ReadPropertyInteger("LightValue"));
+          $Regensensor = GetValue($this->ReadPropertyInteger("RainValue"));
+          $oberenSchwellwert = GetValue($this->GetIDForIdent("upperValueSun"));
+          $unterenSchwellwert = GetValue($this->GetIDForIdent("lowerValueSun"));
+          $Status = GetValue($this->GetIDForIdent("stateSun"));
+
+          if($Status <> 1)
+            {
+              if($Lichtsensor >= $oberenSchwellwert && $Regensensor == false)
+              {
+                SetValue($this->GetIDForIdent("stateSun"), "1");
+              }
+            } elseif($Status <> 0)
+                {
+                  if($Lichtsensor <= $unterenSchwellwert)
+                    {
+                      SetValue($this->GetIDForIdent("stateSun"), "0");
+                    }
+                  }
+
+          }
 
         public function Wind() {
 
