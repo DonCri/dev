@@ -45,7 +45,7 @@
         $this->EnableAction("upperValueWind");
         $this->EnableAction("lowerValueWind");
 
-        $this->RegisterPropertyString("Object");
+        $this->RegisterPropertyString("Object", "");
 
       }
 
