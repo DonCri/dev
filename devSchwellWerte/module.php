@@ -15,7 +15,7 @@
         // Diese Zeile nicht löschen.
         parent::Create();
 
-        // Profil für Sonne
+        // Profil für Schwellwerte
         if(!IPS_VariableProfileExists("BRELAG.SollSWW")) {
     			IPS_CreateVariableProfile("BRELAG.SollSWW", 1);
           IPS_SetVariableProfileValues("BRELAG.SollSWW", 0, 2, 0);
@@ -24,13 +24,21 @@
     			IPS_SetVariableProfileAssociation("BRELAG.SollSWW", 1, $this->Translate("upper"), "", -1);
     		}
 
-        $this->RegisterVariableString("upperValueSun", "Oberer Schwellwert Sonne", "", "1");
-        $this->RegisterVariableString("lowerValueSun", "Unterer Schwellwert Sonne", "", "2");
+        // Profil für Beschattung aktivieren / deaktivieren
+        if(!IPS_VariableProfileExists("BRELAG.Switch")) {
+    			IPS_CreateVariableProfile("BRELAG.Switch", 0);
+    			IPS_SetVariableProfileIcon("BRELAG.Switch", "Power");
+    			IPS_SetVariableProfileAssociation("BRELAG.Switch", 0, $this->Translate("Off"), "", -1);
+    			IPS_SetVariableProfileAssociation("BRELAG.Switch", 1, $this->Translate("On"), "", -1);
+    		}
+
+        $this->RegisterVariableString("upperValueSun", "Oberen Schwellwert Sonne", "", "1");
+        $this->RegisterVariableString("lowerValueSun", "Unteren Schwellwert Sonne", "", "2");
         $this->RegisterVariableInteger("stateSun", "Aktiver Schwellwert Sonne", "BRELAG.SollSWW", "3");
         $this->RegisterVariableBoolean("StateChangeSun", "Beschattung aktivieren / deaktivieren", "BRELAG.Switch", "0");
 
-        $this->RegisterVariableString("upperValueWind", "Oberer Schwellwert Wind", "", "4");
-        $this->RegisterVariableString("lowerValueWind", "Unterer Schwellwert Wind", "", "5");
+        $this->RegisterVariableString("upperValueWind", "Oberen Schwellwert Wind", "", "4");
+        $this->RegisterVariableString("lowerValueWind", "Unteren Schwellwert Wind", "", "5");
         $this->RegisterVariableInteger("stateWind", "Aktiver Schwellwert Wind", "BRELAG.SollSWW", "6");
 
         $this->RegisterPropertyInteger("LightValue", 0);
